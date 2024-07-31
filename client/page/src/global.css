@@ -1,65 +1,245 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f2f5;
-  }
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.form-container {
+  background-color: #eaf1f9;
+  padding: 2rem;
+  border-radius: 0 8px 8px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  height: 60%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h2 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: rgb(5, 103, 118);
+  font-size: 20px;
+}
+
+.form-container input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.form-container button {
+  padding: 7px;
+  border: none;
+  border-radius: 4px;
+  background: #007bff;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 70%;
+}
+
+.button-center{
+  display: flex;
+  justify-content: center;
   
+}
+.form-container button:hover {
+  background: #0056b3;
+}
+
+.form-container .link {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.form-container .link a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.form-container .link a:hover {
+  text-decoration: underline;
+}
+
+.sign-Page, .login-page {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  background: linear-gradient(90deg, rgba(169, 232, 242, 1) 35%, rgb(136, 164, 222) 100%);
+  border-radius: 8px 0 0 8px;
+  width: 100%;
+  max-width: 300px;
+  height: 60%;
+}
+.login-page{
+  background-image: url("https://img.freepik.com/free-photo/office-supplies-keyboard-coffee-cup-card-eyeglasses-candle-headphone-blue-background_23-2148041892.jpg?t=st=1722362011~exp=1722365611~hmac=a7ef73a7e4bc1d6a5d01f48a6bf3fa99377f5cf5d802b9ff63afe0cf8496bb7b&w=996");
+  background-size: cover;
+  background-repeat: no-repeat;
+
+}
+
+.sign-Page h1, .login-page h1 {
+  font-size: 18px;
+}
+
+.sign-Page p, .login-page p {
+  font-size: 16px;
+}
+
+.dashboard-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.dashboard-content {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.user-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.user-avatar {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
+}
+
+.user-info {
+  margin: 20px 0;
+}
+
+.user-info p {
+  margin: 5px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.logout-button {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  background-color: #0056b3;
+}
+
+.user-profile h1 {
+  font-size: 24px;
+  margin: 10px 0;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
   .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
   }
-  
+
+  .sign-Page, .login-page, .form-container {
+    max-width: 100%;
+    border-radius: 8px 8px 0 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .login-page{
+    display: none;
+  }
+
   .form-container {
-    background: #fff;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
+    border-radius: 0 0 8px 8px;
   }
-  
+
+  .dashboard-container {
+    padding: 20px;
+  }
+
+  .dashboard-content {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-container {
+    padding: 1.5rem;
+  }
+
   .form-container h2 {
-    margin-bottom: 1.5rem;
-    text-align: center;
+    font-size: 18px;
   }
-  
+
   .form-container input {
-    width: 100%;
     padding: 0.5rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    margin-bottom: 0.75rem;
   }
-  
+
   .form-container button {
-    width: 100%;
-    padding: 0.75rem;
-    border: none;
-    border-radius: 4px;
-    background: #007bff;
-    color: #fff;
-    font-size: 1rem;
-    cursor: pointer;
+    padding: 0.5rem;
   }
-  
-  .form-container button:hover {
-    background: #0056b3;
+
+  .sign-Page, .login-page {
+    padding: 1.5rem;
+    border-radius: 8px 8px 0 0;
   }
-  
-  .form-container .link {
-    text-align: center;
-    margin-top: 1rem;
+  .login-page{
+    display: none;
   }
-  
-  .form-container .link a {
-    color: #007bff;
-    text-decoration: none;
+
+  .dashboard-container {
+    padding: 15px;
   }
-  
-  .form-container .link a:hover {
-    text-decoration: underline;
+
+  .dashboard-content {
+    padding: 15px;
   }
-  
+
+  .user-avatar {
+    width: 60px;
+    height: 60px;
+  }
+
+  .user-profile h1 {
+    font-size: 20px;
+  }
+
+  .user-info p {
+    font-size: 14px;
+  }
+
+  .logout-button {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+}

@@ -5,6 +5,7 @@ const Signup = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [phone, setPhone] = useState('');
   const navigate = useNavigate();
 
   const handleSignup = async (e) => {
@@ -15,24 +16,35 @@ const Signup = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ username: name, email, password }),
+        body: JSON.stringify({ username: name, email, password, phone }),
       });
 
       if (!response.ok) {
-        alert("User Already Exists")
+        alert("User Already Exists");
         throw new Error('Network response was not ok');
       }
 
       const data = await response.json();
+      console.log('Signup response data:', data);
+
+      // Save user details including phone number
+      const userDetails = { username: name, email, phone };
       localStorage.setItem('token', data.token);
+      localStorage.setItem('userDetails', JSON.stringify(userDetails));
+
       navigate('/login');
     } catch (error) {
-      console.error('Error signing up', error);
+      console.error('Error signing up:', error.message);
     }
   };
 
   return (
     <div className="container">
+      <div className="sign-Page">
+        <h1>Syoft believes in change!</h1>
+        <p>A change driven by technology and innovation</p>
+        <p>Welcome!</p>
+      </div>
       <div className="form-container">
         <h2>Signup</h2>
         <form onSubmit={handleSignup}>
@@ -57,8 +69,17 @@ const Signup = () => {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-          <button type="submit">Signup</button>
-        </form>
+          <input
+            type="tel"
+            placeholder="Mobile"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            required
+          />
+          <div className='button-center'>
+            <button type="submit">Login</button>
+
+          </div>        </form>
         <div className="link">
           <a href="/login">Already have an account? Login</a>
         </div>

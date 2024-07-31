@@ -12,7 +12,7 @@ const generateToken = (id) => {
 
 // Register a new user
 exports.registerUser = async (req, res) => {
-    const { username, email, password } = req.body;
+    const { username, email, password, phone } = req.body;
 
     try {
         // Check if user already exists
@@ -23,13 +23,14 @@ exports.registerUser = async (req, res) => {
         }
 
         // Create a new user
-        const user = await User.create({ username, email, password });
+        const user = await User.create({ username, email, password, phone });
 
         // Respond with user details and token
         res.status(201).json({
             _id: user._id,
             username: user.username,
             email: user.email,
+            phone:user.phone,
             token: generateToken(user._id),
         });
     } catch (error) {
@@ -65,6 +66,7 @@ exports.loginUser = async (req, res) => {
             _id: user._id,
             username: user.username,
             email: user.email,
+            phone: user.phone,
             token: generateToken(user._id),
         });
     } catch (error) {
